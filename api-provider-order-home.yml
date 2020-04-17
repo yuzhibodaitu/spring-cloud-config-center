@@ -1,29 +1,30 @@
-# server:
-#   port: 8081
+server:
+  port: 8081
+
 spring:
   application:
-    name: artisan-order
+    name: api-provider-order
+
   # datasource
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/o2o-order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/dt_o2o_order?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
-    password: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
   #jpa
   jpa:
     show-sql: true
   rabbitmq:
-    host: 192.168.31.34
+    host: localhost
     username: guest
     password: guest
 # Eureka
-# eureka:
-#   client:
-#     service-url:
-#       defaultZone: http://localhost:8762/eureka/
-#ENV
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
 env:
-  dev2-artisan-changfortest2
+  test2
 # 演示@RefreshScope用
 customized:
   apiUrl: http://www.baidu.com
